@@ -1,0 +1,43 @@
+{
+  "name": "gulp-xgettext-handlebars",
+  "version": "0.0.1",
+  "description": "Gulp plugin for extract translatable strings from Handlebars templates",
+  "author": "Gabe Gorelick",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "handlebars",
+    "xgettext",
+    "gettext",
+    "hbs",
+    "i18n",
+    "translate",
+    "translation"
+  ],
+  "homepage": "https://github.com/gabegorelick/gulp-xgettext-handlebars",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabegorelick/gulp-xgettext-handlebars"
+  },
+  "bugs": {
+    "url": "https://github.com/gabegorelick/gulp-xgettext-handlebars/issues"
+  },
+  "main": "./index.js",
+  "dependencies": {
+    "gulp-util": "^3.0.4",
+    "through2": "^0.6.5",
+    "xgettext-handlebars": "0.0.1"
+  },
+  "devDependencies": {
+    "jscs": "^1.12.0",
+    "jshint": "^2.6.3",
+    "mocha": "^2.2.1",
+    "should": "^6.0.1"
+  },
+  "scripts": {
+    "test": "jscs *.js test/*.js && jshint *.js test/*.js && mocha"
+  }
+}
