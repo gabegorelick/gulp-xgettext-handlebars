@@ -1,7 +1,7 @@
 {
   "name": "gulp-xgettext-handlebars",
   "version": "0.0.1",
-  "description": "Gulp plugin for extract translatable strings from Handlebars templates",
+  "description": "Gulp plugin to extract translatable strings from Handlebars templates",
   "author": "Gabe Gorelick",
   "license": "MIT",
   "files": [
