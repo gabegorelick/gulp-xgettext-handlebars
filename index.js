@@ -46,7 +46,9 @@ module.exports = function (config) {
       firstFile = file;
     }
 
-    var strings = parser.parse(file.contents.toString());
+    var strings = parser.parse(file.contents.toString(), {
+      filename: path.relative(file.cwd, file.path)
+    });
     catalog.addStrings(strings);
 
     return cb();
