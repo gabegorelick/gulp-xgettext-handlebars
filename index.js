@@ -6,19 +6,13 @@ var through = require('through2');
 var Parser = require('xgettext-handlebars');
 var Catalog = require('gettext-catalog');
 
-var pluginName = require('./package.json').name;
-
 module.exports = function (config) {
-  var emitStreamingError = function () {
-    this.emit('error', new gutil.PluginError(pluginName, 'Streaming not supported'));
-  }.bind(this);
-
   var parser = new Parser(config);
   var catalog = new Catalog();
 
   var firstFile = null;
 
-  var finish = function () {
+  var finish = function (cb) {
     var pos = catalog.toPOs();
     pos.forEach(function (po) {
       this.push(new gutil.File({
@@ -29,6 +23,8 @@ module.exports = function (config) {
         contents: new Buffer(po.toString())
       }));
     }.bind(this));
+
+    cb();
   };
 
   return through.obj(function (file, enc, cb) {
@@ -38,8 +34,7 @@ module.exports = function (config) {
     }
 
     if (file.isStream()) {
-      emitStreamingError();
-      return cb();
+      return cb(new gutil.PluginError('gulp-xgettext-handlebars', 'Streaming not supported'));
     }
 
     if (!firstFile) {
