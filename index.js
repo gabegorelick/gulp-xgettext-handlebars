@@ -6,9 +6,8 @@ var through = require('through2');
 var Parser = require('xgettext-handlebars');
 var Catalog = require('gettext-catalog');
 
-module.exports = function (config) {
-  var parser = new Parser(config);
-  var catalog = new Catalog();
+module.exports = function (options) {
+  var catalog = new Catalog(options);
 
   var firstFile = null;
 
@@ -41,10 +40,10 @@ module.exports = function (config) {
       firstFile = file;
     }
 
-    var strings = parser.parse(file.contents.toString(), {
+    var messages = new Parser(options).parse(file.contents.toString(), {
       filename: path.relative(file.cwd, file.path)
     });
-    catalog.addStrings(strings);
+    catalog.addMessages(messages);
 
     return cb();
   }, finish);

@@ -27,10 +27,10 @@
   },
   "main": "./index.js",
   "dependencies": {
-    "gettext-catalog": "0.0.1",
+    "gettext-catalog": "0.0.2",
     "gulp-util": "^3.0.4",
     "through2": "^0.6.5",
-    "xgettext-handlebars": "0.0.2"
+    "xgettext-handlebars": "0.0.3"
   },
   "devDependencies": {
     "jscs": "^1.12.0",
