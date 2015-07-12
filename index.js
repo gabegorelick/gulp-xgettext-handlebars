@@ -3,7 +3,7 @@
 var path = require('path');
 var gutil = require('gulp-util');
 var through = require('through2');
-var Parser = require('xgettext-handlebars');
+var xgettext = require('xgettext-handlebars');
 var Catalog = require('gettext-catalog');
 
 module.exports = function (options) {
@@ -40,7 +40,7 @@ module.exports = function (options) {
       firstFile = file;
     }
 
-    var messages = new Parser(options).parse(file.contents.toString(), {
+    var messages = xgettext(file.contents.toString(), {
       filename: path.relative(file.cwd, file.path)
     });
     catalog.addMessages(messages);

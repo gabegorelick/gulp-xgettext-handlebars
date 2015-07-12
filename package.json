@@ -27,17 +27,17 @@
   },
   "main": "./index.js",
   "dependencies": {
-    "gettext-catalog": "0.0.2",
+    "gettext-catalog": "0.0.3",
     "gulp-util": "^3.0.4",
-    "through2": "^0.6.5",
-    "xgettext-handlebars": "0.0.3"
+    "through2": "^2.0.0",
+    "xgettext-handlebars": "0.0.5"
   },
   "devDependencies": {
     "jscs": "^1.12.0",
     "jshint": "^2.6.3",
     "mocha": "^2.2.1",
     "pofile": "^0.2.12",
-    "should": "^6.0.1"
+    "should": "^7.0.2"
   },
   "scripts": {
     "test": "jscs *.js test/*.js && jshint *.js test/*.js && mocha"
