@@ -93,4 +93,25 @@ describe('gulp-xgettext-handlebars', function () {
     }));
     stream.end();
   });
+
+  it('should allow customizing xgettext-handlebars options', function (done) {
+    var stream = xgettext({identifiers: {i18n: ['msgid']}});
+    stream.on('error', done);
+    stream.on('data', function (file) {
+      var catalog = PO.parse(file.contents.toString());
+
+      catalog.items.length.should.equal(1);
+      catalog.items[0].msgid.should.equal('Hi');
+
+      done();
+    });
+
+    stream.write(new File({
+      cwd: __dirname,
+      base: __dirname,
+      path: path.join(__dirname, 'foo.hbs'),
+      contents: new Buffer('{{i18n "Hi"}}')
+    }));
+    stream.end();
+  });
 });
