@@ -1,11 +1,9 @@
 {
   "extends": "../.eslintrc",
-  "globals": {
-    "describe": false,
-    "it": false,
-    "before": false,
-    "beforeEach": false,
-    "after": false,
-    "afterEach": false
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-unused-expressions": 0
   }
 }
